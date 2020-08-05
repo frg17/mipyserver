@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Esp32</title>
+
+    <style>
+      html {
+        background-color: #000;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Flurb</h1>
+    <h2 id="count" data-count="0">0</h2>
+  </body>
+
+  <script>
+    const h2 = document.getElementById("count");
+
+    setInterval(() => {
+      h2.dataset.count = parseInt(h2.dataset.count) + 1;
+      h2.textContent = h2.dataset.count;
+    }, 1000);
+  </script>
+</html>
