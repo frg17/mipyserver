@@ -45,10 +45,6 @@
         margin-bottom: 200px;
       }
 
-      #key {
-        display: none;
-      }
-
       @-webkit-keyframes noise-anim {
         0% {
           clip: rect(66px, 9999px, 56px, 0);
@@ -345,46 +341,11 @@
   </head>
   <body>
     <div class="sky">
-      <div id="btn-layer">
-        <a class="btn fadeIn fadeInSecond" onclick="hostReachable()"
-          >Continue..</a
-        >
-      </div>
-
       <div id="key">
-        <div class="glitch" data-text="Feed me.... internet..">
-          Feed me.... internet..
+        <div class="glitch" data-text="Find me... TOUCH ME!!">
+          Find me... TOUCH ME!!
         </div>
       </div>
     </div>
-
-    <script>
-      function hostReachable() {
-        // Handle IE and more capable browsers
-        var xhr = new XMLHttpRequest();
-
-        // Open new request as a HEAD to the root hostname with a random param to bust the cache
-        xhr.open(
-          "GET",
-          "http://scavengers-adventure.herokuapp.com" + "/ping",
-          false
-        );
-
-        // Issue request and handle response
-        try {
-          xhr.send();
-          if (xhr.status >= 200 && (xhr.status < 300 || xhr.status === 304)) {
-            document.location = "http://scavengers-adventure.herokuapp.com";
-          }
-        } catch (error) {
-          secretKey();
-          return false;
-        }
-      }
-
-      function secretKey() {
-        document.getElementById("key").style.display = "block";
-      }
-    </script>
   </body>
 </html>
