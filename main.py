@@ -7,6 +7,10 @@ html = ""
 with open("index.html", "rb") as f:
 	html = f.read()
 
+touchme = ""
+with open("touchme.html", "rb") as f:
+	touchme = f.read()
+
 
 wlan = network.WLAN(network.AP_IF)
 print(wlan.ifconfig())
@@ -33,6 +37,7 @@ pin15 = Pin(15)
 tp = TouchPad(pin15)
 
 def send_response(client, addr):
+	print('Sending response')
 	if led_val == 1:
 		print('Connection from {}'.format(addr))
 		print('Sending response')
@@ -41,8 +46,9 @@ def send_response(client, addr):
 		client.close()
 		print('Response sent')
 	else:
+		print("Sending 2")
 		client.sendall(b'HTTP/1.1 200 OK\n\n')
-		client.sendall(b'Go away, loser.')
+		client.sendall(touchme)
 		client.close()
 
 
@@ -65,4 +71,4 @@ while True:
 		pass
 
 	if HAVE_LED: led.value(led_val)
-	time.sleep_ms(5)
+	time.sleep_ms(100)

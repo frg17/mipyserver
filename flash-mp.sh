@@ -56,8 +56,8 @@ if [ "$1" = "flash" ]; then
 		echo "$FIRMWARE found"
 	fi
 	
-	python -m esptool --chip esp32 --port $2 erase_flash
-	python -m esptool --chip esp32 --port $2 --baud 115200 write_flash -z 0x1000 $FIRMWARE
+	python3 -m esptool --chip esp32 --port $2 erase_flash
+	python3 -m esptool --chip esp32 --port $2 --baud 115200 write_flash -z 0x1000 $FIRMWARE
 
 elif [ "$1" = "copy" ]; then
 	check_param $2
